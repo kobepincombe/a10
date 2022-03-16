@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Shiny Pokemon API Fun!</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href=style.css>
+    <script>
+        // when the button is clicked, reaches out to the API and gathers
+        // and displays the appropriate information
+        function search() {
+            var pokemon = document.getElementById("search_box").value.toLowerCase();
+            document.getElementById("messages").innerHTML = "Loading...";
+            /* Step 1: Make instance of XHR object...
+            ...to make HTTP request after page is loaded*/
+            request = new XMLHttpRequest();
+            // Step 2: Open the JSON file at remote location
+            request.open("GET", "https://pokeapi.co/api/v2/pokemon/" + pokemon, true);
+            // Step 3: set up callback for when HTTP response is returned (i.e., you get the JSON file back)
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    // Step 5: when we get all the JSON data back, parse it and use it
+                    theData = request.responseText;
+                    returnHTML = theData;
+                    data = JSON.parse(theData);
+                    // capitalizes name, makes info visible
+                    var name = data.forms[0].name.charAt(0).toUpperCase() + data.forms[0].name.slice(1);
+                    document.getElementById("messages").style.display = "block";
+                    document.getElementById("info").style.display = "block";
+                    // shows picture and name of pokemon
+                    returnHTML = "<img src='" + data.sprites.front_shiny + "'width='200px'>";
+                    returnHTML += "<div id='pokemon_name'>" + name + "</div>";
+                    document.getElementById("messages").innerHTML = returnHTML;
+                }
+                else if (request.readyState == 4 && request.status != 200) {
+                    document.getElementById("messages").innerHTML = "That Pokemon doesn't seem to exist.";
+                }
+                else if (request.readyState == 3) {
+                    document.getElementById("messages").innerHTML = "Enter a valid name or ID please.";
+                }
+            }//end on readystate change
+            // Step 4: fire off the HTTP request
+            request.send();
+        }
+    </script>
+</head>
+<body>
+<h1>Shiny Pokemon Finder</h1>
+<label for="search_box">Enter Pokemon name or ID below</label>
+<input type="text" id="search_box"/>
+<button onclick="search()">Click here to search</button>
+<div id="messages" style="display:none"></div>
+<br>
+<div id="info" class="block" style="display:none">
+    The API used above is PokeAPI and I found it on the class-featured GitHub
+    repository at https://github.com/public-apis/public-apis. The specific
+    website that contains the API is https://pokeapi.co/. The options I used
+    for the API request were the ID or name of a Pokemon as an input to get the
+    front shiny sprite as well as the name in proper form. This was a use that
+    I thought was simple and fun, but the API as a whole has a lot more practical
+    functionality and information. This API has the information for the moves,
+    abilities, experience rate, held items, and much more for every Pokemon in
+    the games. Thus, I can easily think of two applications where this API would
+    be helpful. The first is in competitive play when looking to build a viable
+    team while considering the move-sets of Pokemon as well as its stats. A second
+    application of this API is shiny hunting, as the API has the location data
+    and shiny sprite data of each Pokemon.
+</div>
+</body>
+</html>

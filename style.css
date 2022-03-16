@@ -1,0 +1,66 @@
+h1 {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    text-align: center;
+    border: 5px solid slategrey;
+    font-family: sans-serif;
+}
+
+label {
+    background: rgba(0, 0, 0, 0.9);
+    color: ghostwhite;
+    padding: 20px;
+    text-align: center;
+    border: 5px solid slategrey;
+    font-size: large;
+    font-family: sans-serif;
+}
+
+input[type="text"] {
+    padding: 1%;
+}
+
+button {
+    font-size: 20px;
+    padding: 1%;
+}
+
+body {
+    background: url("poke_background.jpg");
+    background-size: 150px;
+    display: grid;
+    grid-gap: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: auto;
+    text-align: center;
+    width: 65%;
+    border: 5px solid slategrey;
+    font-weight: bold;
+    font-size: x-large;
+    font-family: serif;
+}
+
+div {
+    background: rgba(255, 255, 255, 0.9);
+    display: block;
+    padding: 20px;
+    text-align: center;
+    border: 5px solid slategrey;
+    font-size: large;
+    font-family: sans-serif;
+}
+
+.block {
+    background: rgba(0, 0, 0, 0.9);
+    color: ghostwhite;
+    padding: 20px;
+    text-align: center;
+    border: 5px solid slategrey;
+    font-size: large;
+    font-family: sans-serif;
+}
+
+@media screen and (max-width: 625px) {
+
+}
