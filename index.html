@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Shiny Pokemon API Fun!</title>
+    <title>Shiny Pokémon API Fun!</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href=style.css>
     <script>
@@ -32,7 +32,7 @@
                     document.getElementById("messages").innerHTML = returnHTML;
                 }
                 else if (request.readyState == 4 && request.status != 200) {
-                    document.getElementById("messages").innerHTML = "That Pokemon doesn't seem to exist.";
+                    document.getElementById("messages").innerHTML = "That Pokémon doesn't seem to exist.";
                 }
                 else if (request.readyState == 3) {
                     document.getElementById("messages").innerHTML = "Enter a valid name or ID please.";
@@ -44,26 +44,26 @@
     </script>
 </head>
 <body>
-<h1>Shiny Pokemon Finder</h1>
-<label for="search_box">Enter Pokemon name or ID below</label>
+<h1>Shiny Pokémon Finder</h1>
+<label for="search_box">Enter Pokémon name or ID below</label>
 <input type="text" id="search_box"/>
 <button onclick="search()">Click here to search</button>
 <div id="messages" style="display:none"></div>
 <br>
 <div id="info" class="block" style="display:none">
-    The API used above is PokeAPI and I found it on the class-featured GitHub
+    The API used above is PokéAPI and I found it on the class-featured GitHub
     repository at https://github.com/public-apis/public-apis. The specific
     website that contains the API is https://pokeapi.co/. The options I used
-    for the API request were the ID or name of a Pokemon as an input to get the
+    for the API request were the ID or name of a Pokémon as an input to get the
     front shiny sprite as well as the name in proper form. This was a use that
     I thought was simple and fun, but the API as a whole has a lot more practical
     functionality and information. This API has the information for the moves,
-    abilities, experience rate, held items, and much more for every Pokemon in
+    abilities, experience rate, held items, and much more for every Pokémon in
     the games. Thus, I can easily think of two applications where this API would
     be helpful. The first is in competitive play when looking to build a viable
-    team while considering the move-sets of Pokemon as well as its stats. A second
+    team while considering the move-sets of Pokémon as well as its stats. A second
     application of this API is shiny hunting, as the API has the location data
-    and shiny sprite data of each Pokemon.
+    and shiny sprite data of each Pokémon.
 </div>
 </body>
 </html>
