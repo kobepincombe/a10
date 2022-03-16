@@ -18,6 +18,7 @@ label {
 
 input[type="text"] {
     padding: 1%;
+    text-align: center;
 }
 
 button {
